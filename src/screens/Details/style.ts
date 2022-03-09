@@ -6,14 +6,10 @@ import {  TextInputProps } from 'react-native';
 type StatusProps = TextInputProps & {
     status?: string | "none";
 }
-
-
-
 export const Container = styled.View`
     height: 100%;
     background: ${theme.colors.backgroundLevel1};
 `
-
 export const ImageContainer = styled.View`
     flex: 7;
 
@@ -21,12 +17,10 @@ export const ImageContainer = styled.View`
 export const ImageThumb = styled.Image`
     width: 100%;  
 `
-
 export const ContentContainer = styled.View`
     flex: 6;
     padding: 20px;
 `
-
 export const TitleContainer = styled.View`
     flex-direction: row;
     justify-content: space-between;
@@ -59,7 +53,6 @@ export const TextAnswer = styled.Text<StatusProps>`
         }
     }}
 `
-
 export const ButtonLike = styled.TouchableHighlight`
     width: 24px;
     height: 24px;

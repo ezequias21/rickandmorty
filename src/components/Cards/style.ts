@@ -54,7 +54,7 @@ export const Info = styled.Text<TextProps>`
 
 
 export const ContentRow = styled.View`
-/*     flex: 1; */
+
     flex-direction : row;
     justify-content: space-between;
 `
