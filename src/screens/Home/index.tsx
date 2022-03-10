@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, } from "react";
-import { View, FlatList, ActivityIndicator, TouchableHighlight, Text } from 'react-native';
+import { View, FlatList, ActivityIndicator } from 'react-native';
 
 
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
@@ -8,7 +8,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { SearchBar } from '../../components/SearchBar';
 import { Cards } from "../../components/Cards";
-import { Loading } from './style'
 
 import api from '../../services/api';
 
@@ -55,14 +54,14 @@ export function Home({ navigation }: Props) {
     const getLikes = async () => {
         var value = ''
         try {
-          const jsonValue = await AsyncStorage.getItem('likedIds1')
-         if( jsonValue != null) 
-             value =  JSON.parse(jsonValue)
-        } catch(e) {console.log(e)}
-      
-       setLikes(value)
-      
-      }
+            const jsonValue = await AsyncStorage.getItem('likedIds1')
+            if (jsonValue != null)
+                value = JSON.parse(jsonValue)
+        } catch (e) { /* */ }
+
+        setLikes(value)
+
+    }
 
     function loadCharacters() {
 
@@ -86,9 +85,7 @@ export function Home({ navigation }: Props) {
         if (!userIsSearching)
             loadCharacters()
     }
-    const handleSearchOnBlur = () => {
-        console.log("é sim")
-    }
+    
     const handleFilteredCharacteres = (filteredCharacteres: Characteres[]) => {
 
         setFilteredCharacters(filteredCharacteres)
@@ -100,28 +97,27 @@ export function Home({ navigation }: Props) {
         setUserIsSearching(isSearching)
     }
 
-    const renderItem = ({ item } : {item : Characteres}) => {
+    const renderItem = ({ item }: { item: Characteres }) => {
 
         const isLiked = likes.includes(String(item.id))
         return (
-            <ListItem key={item.id}
+            <ListItem
+                key={item.id}
+                activeOpacity={0.8}
+                onPress={() => navigation.navigate('Details', { id: item.id })}>
 
-            activeOpacity={0.6}
-            underlayColor="#dddddd"
-            onPress={() => navigation.navigate('Details', { id: item.id })}>
+                <Cards
+                    data={item}
+                    isLiked={isLiked}
+                />
+            </ListItem>
 
-            <Cards
-                data={item}
-                isLiked={isLiked}
-            />
-        </ListItem>
-          
         );
-      };
+    };
 
 
     return (
-        <View>
+        <View style={{ flex: 1 }}>
             <BandContainer>
                 <Band>
                     <Title>Listagem</Title>
@@ -134,7 +130,6 @@ export function Home({ navigation }: Props) {
                     <SearchBar
                         handleFilteredCharacteres={handleFilteredCharacteres}
                         checkIsSearching={checkIsSearching}
-                        handleSearchOnBlur={handleSearchOnBlur}
                     />
                 </ContainerSearchBar>
                 <FlatList
@@ -146,20 +141,10 @@ export function Home({ navigation }: Props) {
                     initialNumToRender={5}
                     maxToRenderPerBatch={5}
                     updateCellsBatchingPeriod={20}
-                    ListFooterComponent={<FooterList></FooterList>}
+                    ListFooterComponent={<ActivityIndicator size={"large"} color={'#333'} />}
                 />
             </ContentContainer>
         </View>)
 }
 
 
-
-
-function FooterList() {
-
-    return (
-        <Loading >
-            <ActivityIndicator size={30} color={'black'} />
-        </Loading>
-    )
-}

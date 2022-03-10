@@ -16,5 +16,4 @@ export const Content = styled.View`
 `;
 export const ImageLogo = styled.Image`
   width: 300px;
-  /*  z-index: 100; */
 `;

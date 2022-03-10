@@ -1,7 +1,5 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { View } from 'react-native';
+import React, { useContext } from 'react';
 import { AntDesign } from '@expo/vector-icons';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { LikesContext } from './../../contexts/context'
 import './../../global/types/types.ts'
 

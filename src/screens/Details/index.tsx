@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { View, Text, Image, TouchableHighlight } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';

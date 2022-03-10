@@ -16,9 +16,6 @@ type Characteres = {
         url: string
     },
     image: string,
-    episode: [
-        "https://rickandmortyapi.com/api/episode/27"
-    ],
     url: string,
     created: string
 }

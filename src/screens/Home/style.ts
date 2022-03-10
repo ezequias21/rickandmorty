@@ -28,12 +28,13 @@ export const ContainerSearchBar = styled.View`
     margin-bottom: 15px;
 `
 export const ContentContainer = styled.View`
+    flex: 1;
     padding-left: 14px;
     padding-right: 14px;
     background-color: ${theme.colors.backgroundLevel2};
     height: 100%;
 `
-export const ListItem = styled.TouchableHighlight`
+export const ListItem = styled.TouchableOpacity`
 
     background-color: ${theme.colors.backgroundLevel2};
     margin-bottom: 15px;

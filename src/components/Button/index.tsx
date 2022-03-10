@@ -3,7 +3,8 @@ import { TouchableOpacity, Text, View, TouchableOpacityProps } from 'react-nativ
 import { ButtonContainer, ButtonText, ButtonContent } from './style';
 import { Ionicons } from '@expo/vector-icons';
 
-/* import { HeartIcont } from 'react-native-vector-icons/FontAwesome'; */
+
+
 type Props =  TouchableOpacityProps & {
     title: string
     hasIcone?: Boolean | true,

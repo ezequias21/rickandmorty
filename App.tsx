@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import { Start } from './src/screens/Start';
 import { Home } from './src/screens/Home';
 import { NavigationContainer } from '@react-navigation/native';
@@ -10,18 +8,10 @@ import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 import { Play_400Regular, Play_700Bold } from '@expo-google-fonts/play';
 import { Details } from './src/screens/Details';
-import { ButtonBack } from './src/components/ButtonBack';
 
 import { LikesContext } from './src/contexts/context';
+import './src/global/types/types.ts'
 
-const Stack = createNativeStackNavigator();
-
-type RootStackParamList = {
-  Home: undefined;
-  Starts: undefined;
-  Feed: { sort: 'latest' | 'top' } | undefined;
-  Details: { id: string }
-};
 const RootStack = createNativeStackNavigator<RootStackParamList>()
 
 function App() {
@@ -38,7 +28,7 @@ function App() {
 
     <NavigationContainer>
       <RootStack.Navigator>
-        <Stack.Screen
+        <RootStack.Screen
           name="Start"
           component={Start}
           options={{
@@ -47,7 +37,7 @@ function App() {
             headerTransparent: true,
           }}
         />
-        <Stack.Screen
+        <RootStack.Screen
           name="Home"
           component={Home}
           options={{
@@ -57,7 +47,7 @@ function App() {
 
           }}
         />
-        <Stack.Screen
+        <RootStack.Screen
           name="Details"
           component={Details}
           options={{

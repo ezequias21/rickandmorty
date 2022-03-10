@@ -1,20 +1,14 @@
 import React from 'react';
-import { View, Image, Text, ImageBackground, StatusBar } from 'react-native';
+import { StatusBar } from 'react-native';
 import { Button } from '../../components/Button';
 
 import BackgroundHome from '../../assets/home.png';
 import Logo from './../../assets/logo.png';
 
 import { Container, BackgroundImage, ImageLogo, Content } from './style';
-import { NavigationContainer } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import './../../global/types/types.ts'
 
-type RootStackParamList = {
-  Home: undefined;
-  Start: undefined;
-  Feed: { sort: 'latest' | 'top' } | undefined;
-  Details: {id: string };
-};
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Start'>
 
