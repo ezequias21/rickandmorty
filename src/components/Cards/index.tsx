@@ -24,8 +24,6 @@ type Props = {
 
 export function Cards({ data, isLiked }: Props) {
 
-    const [likes, setLikes] = useContext(LikesContext);
-
     return (
         <CardContainer>
             <ImageContainer>

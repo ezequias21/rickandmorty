@@ -32,7 +32,6 @@ function App() {
           name="Start"
           component={Start}
           options={{
-            title: 'Welcome',
             headerShown: false,
             headerTransparent: true,
           }}
@@ -41,7 +40,6 @@ function App() {
           name="Home"
           component={Home}
           options={{
-            title: 'Welcome',
             headerShown: false,
             headerTransparent: true,
 

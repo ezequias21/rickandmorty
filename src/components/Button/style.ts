@@ -10,8 +10,6 @@ type TextProps = TextInputProps & {
     fontSize?: number | 16;
 }
 
-
-
 export const ButtonContainer = styled.TouchableOpacity<Props>`
     width: 100%;
     height: 55px;
@@ -20,7 +18,6 @@ export const ButtonContainer = styled.TouchableOpacity<Props>`
     align-items: center;
     border-radius: ${ (props) => props.roundedBorders ? "8px" : "0"};
 `
-
 export const ButtonContent = styled.View`
     flex: 1;
     flex-direction: row;

@@ -44,13 +44,11 @@ export function Details({ route, navigation }: Props) {
       } catch(e) {
         // save error
       }
-    
-      console.log('Done.')
     }
+
+
     const handleLikeButton = () => {
    
-    
-
         if(!likes.includes(String(route.params.id))){
             setIsCharacterLiked(true)
             setLikes([...likes, String(route.params.id)])

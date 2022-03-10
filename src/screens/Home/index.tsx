@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext, } from "react";
 import { View, FlatList, ActivityIndicator } from 'react-native';
 
-
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -24,9 +23,6 @@ import {
 import './../../global/types/types.ts'
 import { LikesContext } from "../../contexts/context";
 
-type isSearching = {
-    isSearching: Boolean
-}
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>
 
@@ -42,8 +38,6 @@ export function Home({ navigation }: Props) {
 
 
     const [likes, setLikes] = useContext(LikesContext)
-
-
 
     useEffect(() => {
 
@@ -115,7 +109,13 @@ export function Home({ navigation }: Props) {
         );
     };
 
-
+    const itemListLayout = (data: any, index: number) => {
+        return {
+            length: 350,
+            offset: 350*index,
+            index: index
+        }
+    }
     return (
         <View style={{ flex: 1 }}>
             <BandContainer>
